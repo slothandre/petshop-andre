@@ -1,13 +1,26 @@
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import styled from "styled-components";
 
 export default function Menu() {
+  const rotaAtiva = usePathname();
   return (
     <StyledNav>
-      <Link href="/">Blog</Link>
-      <Link href="/produtos">Produtos</Link>
-      <Link href="/sobre">Sobre</Link>
-      <Link href="/contato">Contato</Link>
+      <Link className={rotaAtiva === "/" ? "ativo" : ""} href="/">
+        Blog
+      </Link>
+      <Link
+        className={rotaAtiva === "/produtos" ? "ativo" : ""}
+        href="/produtos"
+      >
+        Produtos
+      </Link>
+      <Link className={rotaAtiva === "/sobre" ? "ativo" : ""} href="/sobre">
+        Sobre
+      </Link>
+      <Link className={rotaAtiva === "/contato" ? "ativo" : ""} href="/contato">
+        Contato
+      </Link>
     </StyledNav>
   );
 }
@@ -32,5 +45,8 @@ const StyledNav = styled.nav`
       border-top-right-radius: var(--borda-arredondada);
       border-bottom-right-radius: var(--borda-arredondada);
     }
+  }
+  a.ativo {
+    background-color: #000;
   }
 `;
