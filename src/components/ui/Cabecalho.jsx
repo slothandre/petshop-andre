@@ -66,4 +66,13 @@ const StyledHeader = styled.header`
   - Tamanho da fonte do PetShop aumentar pasa 2rem
   
   */
+
+  @media screen and (min-width: 700px) {
+    div {
+      flex-direction: row;
+    }
+    h1 a {
+      font-size: 2rem;
+    }
+  }
 `;
