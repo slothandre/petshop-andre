@@ -56,4 +56,14 @@ const StyledHeader = styled.header`
     flex-direction: column;
     padding-bottom: 1rem;
   }
+
+  /* Mini-exercício:
+  Crie aqui uma media query para telas a partir
+  de 700px e faça as seguintes mudanças:
+  
+  - Na div do cabeçalho, exibir o contepudo lado a lado
+  (lembrando que ali você tem o flex já sendo usado)
+  - Tamanho da fonte do PetShop aumentar pasa 2rem
+  
+  */
 `;
