@@ -30,6 +30,10 @@ const StyledNav = styled.nav`
   justify-content: center;
   align-items: center;
 
+  .ativo {
+    background-color: #000;
+  }
+
   a {
     text-decoration: none;
     background-color: var(--cor-primaria-fundo);
@@ -55,8 +59,5 @@ const StyledNav = styled.nav`
       padding-left: 2rem;
       padding-right: 2rem;
     }
-  }
-  a.ativo {
-    background-color: #000;
   }
 `;
