@@ -45,6 +45,15 @@ const StyledNav = styled.nav`
       border-top-right-radius: var(--borda-arredondada);
       border-bottom-right-radius: var(--borda-arredondada);
     }
+
+    &:hover,
+    &:focus {
+      background-color: var(--cor-primaria-fundo-hover);
+    }
+    @media screen and (min-width: 700px) {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
   }
   a.ativo {
     background-color: #000;
