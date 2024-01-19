@@ -1,5 +1,14 @@
 # PetShop: projeto Next.js
 
+## Branch 10-desafio-transformas-lista-de-posts-em-componente
+
+- Crie na pasta `components` um componente chamado `ListaPosts`
+- Modifique a página inicial para que ela utilize este componente.
+
+**Atenção:** toda a lógica/programação feita em relação ao <StyledListaPosts> deve ser migrada para o novo componente, exceto o `import` do `arrayPosts` que deve continuar na página inicial.
+
+Portanto, você deverá repassar o `arrayPosts` via `props` para o novo componente.
+
 ## Branch 05
 
 ### IMPORTANTE!
