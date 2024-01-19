@@ -46,7 +46,7 @@ const StyledHeader = styled.header`
   }
 
   img {
-    margin-left: 0.5rem;
+    margin-right: 0.5rem;
   }
 
   div {
