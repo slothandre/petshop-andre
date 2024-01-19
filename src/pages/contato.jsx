@@ -52,4 +52,34 @@ const StyledContato = styled.section`
   textarea {
     resize: none;
   }
+  input {
+    height: 40px;
+  }
+  input,
+  textarea {
+    border: none;
+    box-shadow: var(--sombra-box);
+    width: 70%;
+    padding: 0.5rem;
+  }
+  label {
+    font-weight: bold;
+    width: 30%;
+  }
+  button {
+    padding: 1rem;
+    color: var(--cor-primaria);
+    background-color: var(--cor-primaria-fundo);
+    border: none;
+  }
+  button:hover {
+    cursor: pointer;
+    background-color: var(--cor-primaria-fundo-hover);
+  }
+  form div {
+    margin-bottom: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 `;
