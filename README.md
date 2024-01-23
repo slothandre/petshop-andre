@@ -1,6 +1,19 @@
 # PetShop: projeto Next.js
 
-## Branch 10-desafio-transformas-lista-de-posts-em-componente
+## Branch 11-usando-json-server-como-fake-api
+
+### Etapas (faça tudo usando o Node.js Command Prompt)
+
+1. Instalação global do `json-server`: `npm install -g json-server`
+2. Colocação do arquivo `db.json` na raíz do projeto (este arquivo funcionará como um banco de dados para a API)
+3. Pegar o IP da máquina usando `ipconfig`
+4. Adicionar um script npm no `package.json` com a seguinte configuração:
+
+`"api" : "json-server --host IP.DA.SUA.MAQUINA db.json --port NÚMERO"`
+
+5. Executar a API usando `npm run api`
+
+## Branch 10-desafio-transformar-lista-de-posts-em-componente
 
 - Crie na pasta `components` um componente chamado `ListaPosts`
 - Modifique a página inicial para que ela utilize este componente.
@@ -20,7 +33,7 @@ Portanto, você deverá repassar o `arrayPosts` via `props` para o novo componen
 
 ### IMPORTANTE!
 
-Após instalar o `styled-component`, ative o suporte à compilação dele pelo Next.js modificando o arquivo `next.config.js`:
+Após instalar o `styled-components`, ative o suporte à compilação dele pelo Next.js modificando o arquivo `next.config.js`:
 
 ```javascript
 /** @type {import('next').NextConfig} */
