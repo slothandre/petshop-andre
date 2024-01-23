@@ -1,8 +1,37 @@
 import Head from "next/head";
 import styled from "styled-components";
 import ListaPosts from "@/components/ListaPosts";
+import { useState } from "react";
 
-export default function Home() {
+/* Função getStaticProps
+Utilizada para execução de código server-side (neste cado, fetch na API)
+com o objetico de gerar props com os dados processados. */
+export async function getStaticProps() {
+  try {
+    const resposta = await fetch(`http://10.20.46.20:2112/posts`);
+    const dados = await resposta.json();
+
+    if (!resposta.ok) {
+      throw new Error(`Erro: ${resposta.status} - ${resposta.statusText}`);
+    }
+
+    /* Após o processamento (desde que não haja erros), a getStaticProps
+    retorna um objeto com uma propriedade chamada "props", e nesta propriedade
+    colocamos um objeto com as props que queremos usar. No caso, usamos
+    uma prop "posts" (pode ter qualquer nome) e é nela que colocamos os dados. */
+    return {
+      props: {
+        posts: dados,
+      },
+    };
+  } catch (error) {
+    console.error("Deu ruim: " + error.message);
+  }
+}
+
+export default function Home({ posts }) {
+  const [listaDePosts, setListaDePosts] = useState(posts);
+
   return (
     <>
       <Head>
@@ -15,7 +44,7 @@ export default function Home() {
       </Head>
       <StyledHome>
         <h2>Pet Notícias</h2>
-        <ListaPosts posts={[]} />
+        <ListaPosts posts={listaDePosts} />
       </StyledHome>
     </>
   );
