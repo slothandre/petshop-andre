@@ -1,18 +1,20 @@
 import Link from "next/link";
 import styled from "styled-components";
 
-export default function ListaPosts(props) {
+export default function ListaPosts({ posts }) {
   return (
-    <>
-      <StyledListaPosts>
-        <article key={props.id}>
-          <Link href="">
-            <h3>{props.titulo}</h3>
-            <p>{props.subtitulo}</p>
-          </Link>
-        </article>
-      </StyledListaPosts>
-    </>
+    <StyledListaPosts>
+      {posts.map((post) => {
+        return (
+          <article key={post.id}>
+            <Link href="">
+              <h3> {post.titulo} </h3>
+              <p> {post.subtitulo} </p>
+            </Link>
+          </article>
+        );
+      })}
+    </StyledListaPosts>
   );
 }
 
@@ -27,11 +29,11 @@ const StyledListaPosts = styled.div`
 
     & a {
       text-decoration: none;
-      color: #000;
+      color: black;
 
       &:hover,
       &:focus {
-        color: #06f;
+        color: #0066ff;
       }
     }
   }
