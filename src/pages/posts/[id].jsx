@@ -34,10 +34,11 @@ export async function getStaticPaths() {
 }
 
 export default function Post({ post }) {
+  const tituloPagina = `${post.titulo} - PetShop`;
   return (
     <>
       <Head>
-        <title>{post.titulo} - PetShop</title>
+        <title>{tituloPagina}</title>
         <meta name="description" content={post.descricao} />
       </Head>
       <StyledPost>
