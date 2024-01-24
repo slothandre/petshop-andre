@@ -4,9 +4,9 @@ import ListaPosts from "@/components/ListaPosts";
 import { useState } from "react";
 import serverApi from "./api/server";
 
-/* Função getStaticProps
-Utilizada para execução de código server-side (neste cado, fetch na API)
-com o objetico de gerar props com os dados processados. */
+/* Função getStaticProps 
+Utilizada para execução de código server-side (neste caso, fetch na API)
+com o objetivo de gerar props com os dados processados. */
 export async function getStaticProps() {
   try {
     const resposta = await fetch(`${serverApi}/posts`);
@@ -27,6 +27,9 @@ export async function getStaticProps() {
     };
   } catch (error) {
     console.error("Deu ruim: " + error.message);
+    return {
+      notFound: true,
+    };
   }
 }
 
