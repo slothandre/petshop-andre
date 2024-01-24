@@ -34,7 +34,6 @@ export async function getStaticProps() {
 }
 
 export default function Home({ posts, categorias }) {
-  console.log(categorias);
   const [listaDePosts, setListaDePosts] = useState(posts);
 
   return (
@@ -49,16 +48,39 @@ export default function Home({ posts, categorias }) {
       </Head>
       <StyledHome>
         <h2>Pet Notícias</h2>
-        <div>
+        <StyledCategorias>
           {categorias.map((categoria, indice) => {
             return <button key={indice}>{categoria}</button>;
           })}
-        </div>
+        </StyledCategorias>
         <ListaPosts posts={listaDePosts} />
       </StyledHome>
     </>
   );
 }
+
+const StyledCategorias = styled.div`
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 1rem 0;
+  flex-wrap: wrap;
+
+  button {
+    border: none;
+    background-color: var(--cor-secundaria-fundo);
+    color: #f7f7f7;
+    padding: 0.5rem 1rem;
+    border-radius: var(--borda-arredondada);
+    text-transform: capitalize;
+
+    &:hover,
+    &:focus {
+      background-color: var(--cor-secundaria-fundo-hover);
+      cursor: pointer;
+    }
+  }
+`;
 
 const StyledHome = styled.section`
   h2::before {
