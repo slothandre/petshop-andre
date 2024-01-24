@@ -36,6 +36,15 @@ export async function getStaticProps() {
 export default function Home({ posts, categorias }) {
   const [listaDePosts, setListaDePosts] = useState(posts);
 
+  const filtrar = (event) => {
+    const categoriaEscolhida = event.currentTarget.textContent;
+    const novaListaDePosts = posts.filter(
+      (post) => post.categoria === categoriaEscolhida
+    );
+
+    setListaDePosts(novaListaDePosts);
+  };
+
   return (
     <>
       <Head>
@@ -50,7 +59,11 @@ export default function Home({ posts, categorias }) {
         <h2>Pet Notícias</h2>
         <StyledCategorias>
           {categorias.map((categoria, indice) => {
-            return <button key={indice}>{categoria}</button>;
+            return (
+              <button onClick={filtrar} key={indice}>
+                {categoria}
+              </button>
+            );
           })}
         </StyledCategorias>
         <ListaPosts posts={listaDePosts} />
