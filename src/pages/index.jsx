@@ -79,9 +79,9 @@ export default function Home({ posts, categorias }) {
         <ListaCategorias
           categorias={categorias}
           categoriaAtiva={categoriaAtiva}
-          filtrar={filtrar}
-          filtroAtivo={filtroAtivo}
-          limparFiltro={limparFiltro}
+          fiiltroAtivo={filtroAtivo}
+          OnlimparFiltro={limparFiltro}
+          onFiltrar={filtrar}
         />
         <ListaPosts posts={listaDePosts} />
       </StyledHome>
