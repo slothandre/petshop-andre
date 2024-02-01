@@ -94,7 +94,7 @@ export default function Home({ posts, categorias }) {
         <ListaCategorias
           categorias={categorias}
           categoriaAtiva={categoriaAtiva}
-          fiiltroAtivo={filtroAtivo}
+          filtroAtivo={filtroAtivo}
           onlimparFiltro={limparFiltro}
           onFiltrar={filtrar}
         />
