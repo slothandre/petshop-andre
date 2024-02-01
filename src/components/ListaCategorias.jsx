@@ -1,27 +1,22 @@
 import styled from "styled-components";
 
-export default function ListaCategorias({
-  categorias,
-  categoriaAtiva,
-  filtroAtivo,
-  onFiltrar,
-  onLimparFiltro,
-}) {
+export default function ListaCategorias(props) {
   return (
     <StyledCategorias>
-      {categorias.map((categoria, indice) => {
+      {props.categorias.map((categoria, indice) => {
         return (
           <button
-            className={categoria === categoriaAtiva ? "ativo" : ""}
-            onClick={onFiltrar}
+            className={categoria === props.categoriaAtiva ? "ativo" : ""}
+            onClick={props.onFiltrar}
             key={indice}
           >
             {categoria}
           </button>
         );
       })}
-      {filtroAtivo && (
-        <button onClick={onLimparFiltro} className="limpar">
+
+      {props.filtroAtivo && (
+        <button onClick={props.onLimparFiltro} className="limpar">
           Limpar filtro
         </button>
       )}
@@ -37,12 +32,12 @@ const StyledCategorias = styled.div`
   flex-wrap: wrap;
 
   button {
+    text-transform: capitalize;
     border: none;
     background-color: var(--cor-secundaria-fundo);
     color: #f7f7f7;
-    padding: 0.5rem 1rem;
+    padding: 0.5rem;
     border-radius: var(--borda-arredondada);
-    text-transform: capitalize;
 
     &:hover,
     &:focus {
@@ -60,7 +55,7 @@ const StyledCategorias = styled.div`
     &:hover {
       background-color: slategray;
     }
-    &:before {
+    &::before {
       content: "🧹 ";
     }
   }
