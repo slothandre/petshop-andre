@@ -6,11 +6,16 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "api": "json-server --host 10.20.46.43 db.json --port 2112"
   },
   "dependencies": {
+    "json-server": "^1.0.0-alpha.22",
+    "next": "14.0.4",
+    "next-pwa": "^5.6.0",
     "react": "^18",
     "react-dom": "^18",
-    "next": "14.0.4"
+    "react-hook-form": "^7.49.3",
+    "styled-components": "^6.1.8"
   }
 }
