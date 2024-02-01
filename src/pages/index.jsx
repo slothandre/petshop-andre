@@ -1,9 +1,9 @@
 import Head from "next/head";
+import { useState } from "react";
 import styled from "styled-components";
 import ListaPosts from "@/components/ListaPosts";
-import { useState } from "react";
-import serverApi from "./api/server";
 import ListaCategorias from "@/components/ListaCategorias";
+import serverApi from "./api/server";
 
 export async function getStaticProps() {
   try {
@@ -14,17 +14,16 @@ export async function getStaticProps() {
       throw new Error(`Erro: ${resposta.status} - ${resposta.statusText}`);
     }
 
-    /* Colocando os dados dos objetos dentro de um array
+    /* Colocando os dados dos objetos dentro de um array 
     
     1) Object.keys(dados): extrair as chaves/id de cada objeto para um array.
 
     2) Map no array de chaves, em que retornamos um novo objeto.
 
-    3) Cada novo objeto (representado por post) é criado com os dados existentes (por isso, usamos o spread)
+    3) Cada novo objeto (representado por post) é criado com
+    os dados existentes (por isso, usamos o spread)
 
-    4) No caso do id, atribuimos a própria chave de cada objeto. Portanto, em vez de ids numéricos, os ids passam a ser na aplicação o próprio hash/código de cada post.
-
-    */
+    4) No caso do id, atribuimos a própria chave de cada objeto. Portanto, em vez de ids numéricos, os ids passam a ser na aplicação o próprio hash/código de cada post.  */
     const arrayDePosts = Object.keys(dados).map((post) => {
       return {
         ...dados[post],
@@ -56,6 +55,7 @@ export default function Home({ posts, categorias }) {
 
   const filtrar = (event) => {
     const categoriaEscolhida = event.currentTarget.textContent;
+
     const novaListaDePosts = posts.filter(
       (post) => post.categoria === categoriaEscolhida
     );
@@ -90,13 +90,16 @@ export default function Home({ posts, categorias }) {
         <meta name="keywords" content="PetShop, Banho, Ração, Gato, Cachorro" />
       </Head>
       <StyledHome>
-        <h2>Pet Notícias: {listaDePosts.lenght}</h2>
+        <h2>Pet Notícias: {listaDePosts.length} </h2>
+
         <ListaCategorias
-          categorias={categorias}
-          categoriaAtiva={categoriaAtiva}
-          filtroAtivo={filtroAtivo}
-          onlimparFiltro={limparFiltro}
-          onFiltrar={filtrar}
+          {...{
+            categorias,
+            categoriaAtiva,
+            onFiltrar: filtrar,
+            onLimparFiltro: limparFiltro,
+            filtroAtivo,
+          }}
         />
         <ListaPosts posts={listaDePosts} />
       </StyledHome>
